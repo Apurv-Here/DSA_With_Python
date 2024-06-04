@@ -2,7 +2,7 @@
 """
 STACKS
 
-1.FILO
+1.FILO or LIFO
 
 operations on stack:
 push, pop, peek or top, isEmpty
