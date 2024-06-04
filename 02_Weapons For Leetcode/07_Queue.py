@@ -85,6 +85,58 @@ if not sample_queue == True:
 
 
 
+# --------------------------------------------------
+
+print("Queue with functions example starts: ");
+
+queue_eg = [];
+
+def enqueue():
+    element = input("Enter the element: ");
+    queue.append(element);
+    print(element, "is added to queue");
+
+def dequeue():
+    # check if isEmpty or not before pop
+    if not queue_eg == True:
+        print("Queue is empty");
+
+    else:
+        e = queue_eg.pop(0);
+        print("Removed element: ", e);
+
+def display():
+    print(queue_eg);
+
+while True:
+    print("""
+            Select the operation:
+            1. Add
+            2. Remove
+            3. Show
+            4. Quit
+          """);
+    choice = int(input("Enter you number: "));
+
+    if choice == 1:
+        enqueue();
+
+    elif choice == 2:
+        dequeue();
+
+    elif choice == 3:
+        display();
+
+    elif choice == 4:
+        break;
+
+    else:
+        print("Enter from above options only!!!");
+
+
+
+
+
 
 
 
