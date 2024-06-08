@@ -45,11 +45,23 @@ class LinkedList:
                 print(n.data);
                 n = n.ref;
 
+    # Method to add a new node in beginning
+    def add_begin(self, data):
+        new_node = Node(data);
+        # This will create a new node -> Data, None
+
+        new_node.ref = self.head;
+        self.head = new_node;
+
+
+
 if __name__ == "__main__":
 
     # node1 = Node(10);
 
     LL1 = LinkedList();
+    LL1.add_begin(10);
+    LL1.add_begin(20);
     LL1.print_LL();
 
 
