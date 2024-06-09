@@ -42,7 +42,7 @@ class LinkedList:
             n = self.head;
 
             while n is not None:
-                print(n.data);
+                print(n.data, " --> ", end =" ");
                 n = n.ref;
 
     # Method to add a new node in beginning
@@ -99,15 +99,63 @@ class LinkedList:
             n.ref = new_node;
 
 
+    # Add node AFTER x position/node
+    def add_after(self, data, x):
+        n = self.head;
+
+        while n is not None:
+            if x == n.data:
+                break;
+            else:
+                n = n.ref;
+
+        if n is None:
+            print("Node x is not present in LL");
+        else:
+            # The node is present
+            new_node = Node(data);
+            new_node.ref = n.ref;
+            n.ref = new_node;
+
+
+    # Add node BEFORE x position/node
+    def add_before(self, data, x):
+        # Check if LL is empty or not
+        if self.head is None:
+            print("Linked List is empty!");
+            return;
+
+        # Check if the x is first node
+        if self.head.data == x:
+            # Execute add begin function code
+            new_node = Node(data); 
+            new_node.ref = self.head;
+            self.head = new_node;
+            return;
+
+        # Trick is if you want to insert before x, 
+        # then you have to know info about just previous node of x
+        # Then add node after the previous node, instead of adding node before x
+        # Process is same like adding after x, see above method
+
+        
+
 
 if __name__ == "__main__":
 
     # node1 = Node(10);
 
     LL1 = LinkedList();
-    LL1.add_begin(10);
-    LL1.add_begin(20);
+
+    # LL1.add_begin(10);
+    # LL1.add_begin(20);
+    # LL1.add_end(100);
+
     LL1.add_end(100);
+    LL1.add_end(20);
+    LL1.add_begin(10);
+    LL1.add_after(3000, 100);
+
     LL1.print_LL();
 
 
