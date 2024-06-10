@@ -138,7 +138,30 @@ class LinkedList:
         # Then add node after the previous node, instead of adding node before x
         # Process is same like adding after x, see above method
 
-        
+        # n = self.head, here we will take n as prev_node
+
+        prev_node = self.head;
+        while(prev_node.ref is not None):
+            if prev_node.ref.data == x:
+                break;
+                # We have found the previos node
+            prev_node = prev_node.ref;
+
+        if prev_node.ref is None:
+            print("Node is not found in LL");
+        else:
+            new_node = Node(data);
+            new_node.ref = prev_node.ref;
+            prev_node.ref = new_node;
+
+
+    # Inserting node to an empty Linked List
+    def insert_empty(self, data):
+        if self.head is None:
+            new_node = Node(data);
+            self.head = new_node;
+        else:
+            print("Linked List is not empty");
 
 
 if __name__ == "__main__":
@@ -151,10 +174,16 @@ if __name__ == "__main__":
     # LL1.add_begin(20);
     # LL1.add_end(100);
 
-    LL1.add_end(100);
-    LL1.add_end(20);
-    LL1.add_begin(10);
-    LL1.add_after(3000, 100);
+    # LL1.add_end(100);
+    # LL1.add_end(20);
+    # LL1.add_begin(10);
+    # LL1.add_after(3000, 100);
+
+    # LL1.add_begin(20);
+    # LL1.add_begin(10);
+    # LL1.add_before(100, 20);
+
+
 
     LL1.print_LL();
 
