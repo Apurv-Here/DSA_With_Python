@@ -179,9 +179,9 @@ if __name__ == "__main__":
     # LL1.add_begin(10);
     # LL1.add_after(3000, 100);
 
-    # LL1.add_begin(20);
-    # LL1.add_begin(10);
-    # LL1.add_before(100, 20);
+    LL1.add_begin(20);
+    LL1.add_begin(10);
+    LL1.add_before(100, 20);
 
 
 
