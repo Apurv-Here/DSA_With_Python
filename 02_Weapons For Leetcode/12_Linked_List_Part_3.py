@@ -33,10 +33,10 @@ class doublyLL:
             print("Linked List is empty!");
         else:
             n = self.head;
-
+            print("Printing forward traversal");
             while n is not None:
                 print(n.data, " --> ", end =" ");
-                n = n.ref;
+                n = n.nref;
         print();
     
 
@@ -51,21 +51,64 @@ class doublyLL:
             print("Linked List is empty!");
         else:
             n = self.head;
-
+            print("Printing reverse traversal");
             # N will reach the last node
-            while n is not None:
-                n = n.ref;
+            while n.nref is not None:
+                n = n.nref;
 
             # Traverse while from last node = n to head
             while n is not None:
                 print(n.data, " --> ", end =" ");
                 n = n.pref;
 
-
-
         print();
 
+    # Inserting when Doubly LL is empty
+    def insert_empty(self, data):
+        if self.head is None:
+            new_node = Node(data);
+            self.head = new_node;
+        else:
+            print("Linked List is not empty");
 
+
+    # Adding at beginning of DLL
+    def add_begin(self, data):
+        new_node = Node(data);
+        if self.head is None:
+            self.head = new_node;
+        # If the LL is not empty
+        else:
+            new_node.nref = self.head;
+            self.head.pref = new_node;
+            self.head = new_node;
+
+
+     # Adding at end of DLL
+    def add_end(self, data):
+        new_node = Node(data);
+        if self.head is None:
+            self.head = new_node;
+        else:
+            n = self.head;
+            while n.ref is not None:
+                n = n.ref;
+                n.nref = new_node;
+                new_node.pref = n;
+
+
+
+
+
+if __name__ == "__main__":
+
+    DL1 = doublyLL();
+
+
+    # Inserting in an empty linked list
+    DL1.insert_empty(10);
+    DL1.print_LL_reverse();
+    DL1.print_LL_forward();
 
 
 
