@@ -98,6 +98,63 @@ class doublyLL:
 
 
 
+    # Adding Node AFTER certain point, x is position
+    def add_after(self, data, x):
+        if self.head is None:
+            print("Linked List is empty");
+        else:
+            n = self.head;
+            while n is not None:
+                if x == n.data:
+                    break;
+            else:
+                n = n.nref;
+            if n is None:
+                print("Given node is not present in Doubly LL");
+            else:
+                # Now n is pointing to x, we need to insert just after it
+                # Be careful about the last node
+
+                new_node = Node(data);
+                new_node.nref = n.nref;
+                new_node.pref = n;
+                if n.nref is not None:
+                    n.nref.pref = new_node;
+                # If x is the last node, n.nref.pref this will give error
+                n.nref = new_node;
+
+
+    # Adding Node BEFORE certain point
+    def add_before(self, data, x):
+        if self.head is None:
+            print("Linked List is empty");
+        else:
+            n = self.head;
+            while n is not None:
+                if x == n.data:
+                    break;
+            else:
+                n = n.nref;
+            if n is None:
+                print("Given node is not present in Doubly LL");
+            else:
+                # Be careful that x is not the first node
+                new_node = Node(data);
+                new_node.nref = n;
+                new_node.pref = n.pref;
+                # Node/x is not first node
+                if n.pref is not None:
+                    n.pref.nref= new_node;
+                else:
+                    # x is first node
+                    self.head = new_node;
+                n.pref = new_node;
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
@@ -106,9 +163,19 @@ if __name__ == "__main__":
 
 
     # Inserting in an empty linked list
-    DL1.insert_empty(10);
-    DL1.print_LL_reverse();
+    # DL1.insert_empty(10);
+    # DL1.print_LL_reverse();
+    # DL1.print_LL_forward();
+
+    # Inserting before and after at x in Doubly LL
+    DL1.add_begin(4);
+    DL1.add_after(10, 4);
     DL1.print_LL_forward();
+    DL1.print_LL_reverse();
+    DL1.add_before(1000, 4);
+    print();
+    DL1.print_LL_forward();
+    DL1.print_LL_reverse();
 
 
 
