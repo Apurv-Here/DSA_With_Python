@@ -181,6 +181,45 @@ class doublyLL:
                 n = n.nref;
             n.pref.nref = None;
 
+
+
+    def delete_by_value(self, x):
+        if self.head is None:
+            print("Doubly Linked List is empty so can't delete");
+            return;
+        # If LL has only one node, but first check node value == x
+        if self.head.nref is None:
+            if x == self.head.data:
+                self.head = None;
+            else:
+                print("x is not present in Doubly LL");
+            return
+        # If x matches with first node of Long LL
+        if self.head.data == x:
+            self.head = self.head.nref;
+            self.head.pref = None;
+            return;
+
+        # Rest nodes
+        n = self.head;
+        while n.nref is not None:
+            if x == n.data:
+                break;
+            else:
+                n = n.nref;
+            
+        if n.nref is not None:
+            n.nref.pref = n.pref;
+            n.pref.nref = n.nref;
+        
+        # Now we are the last node of LL
+        else:
+            if n.data == x:
+                n.pref.nref = None;
+            else:
+                print("x is not present in Doubly LL");
+
+
         
 
 
@@ -208,18 +247,26 @@ if __name__ == "__main__":
     # DL1.print_LL_reverse();
 
     # Delete from begin and end operations
+    # DL1.add_begin(4);
+    # DL1.add_begin(6);
+    # DL1.add_begin(8);
+    # DL1.add_begin(10);
+    # DL1.print_LL_forward();
+    # DL1.delete_begin();
+    # DL1.print_LL_forward();
+    # DL1.delete_end();
+    # DL1.print_LL_forward();
+
+
     DL1.add_begin(4);
     DL1.add_begin(6);
     DL1.add_begin(8);
     DL1.add_begin(10);
     DL1.print_LL_forward();
-    DL1.delete_begin();
+    DL1.delete_by_value(6);
     DL1.print_LL_forward();
-    DL1.delete_end();
+    DL1.delete_by_value(4);
     DL1.print_LL_forward();
-
-
-
 
 
 

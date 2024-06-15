@@ -1,3 +1,4 @@
 
-    LL1.add_begin(10);
-    LL1.add_before(100, 20);
+    DL1.add_begin(6);
+    DL1.add_begin(8);
+    DL1.add_begin(10);
