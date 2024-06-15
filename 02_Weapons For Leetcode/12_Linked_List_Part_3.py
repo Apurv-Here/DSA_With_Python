@@ -151,7 +151,37 @@ class doublyLL:
                 n.pref = new_node;
 
 
+    # Delete operations
+    # Delete begin, delete end, delete by value
 
+    def delete_begin(self):
+        if self.head is None:
+            print("Doubly Linked List is empty so can't delete");
+            return;
+        # If the LL has exactly one node, and you try to delete from start
+        elif self.head.nref is None:
+            self.head = None;
+            print("Doubly Linked List is empty now");
+        else:
+            self.head = self.head.nref;
+            self.head.pref = None;
+
+
+    def delete_end(self):
+        if self.head is None:
+            print("Doubly Linked List is empty so can't delete");
+            return;
+        # If the LL has exactly one node, and you try to delete from end
+        elif self.head.nref is None:
+            self.head = None;
+            print("Doubly Linked List is empty now");
+        else:
+            n = self.head;
+            while n.nref is not None:
+                n = n.nref;
+            n.pref.nref = None;
+
+        
 
 
 
@@ -168,14 +198,26 @@ if __name__ == "__main__":
     # DL1.print_LL_forward();
 
     # Inserting before and after at x in Doubly LL
+    # DL1.add_begin(4);
+    # DL1.add_after(10, 4);
+    # DL1.print_LL_forward();
+    # DL1.print_LL_reverse();
+    # DL1.add_before(1000, 4);
+    # print();
+    # DL1.print_LL_forward();
+    # DL1.print_LL_reverse();
+
+    # Delete from begin and end operations
     DL1.add_begin(4);
-    DL1.add_after(10, 4);
+    DL1.add_begin(6);
+    DL1.add_begin(8);
+    DL1.add_begin(10);
     DL1.print_LL_forward();
-    DL1.print_LL_reverse();
-    DL1.add_before(1000, 4);
-    print();
+    DL1.delete_begin();
     DL1.print_LL_forward();
-    DL1.print_LL_reverse();
+    DL1.delete_end();
+    DL1.print_LL_forward();
+
 
 
 
